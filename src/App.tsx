@@ -1,22 +1,18 @@
 import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import CreateNotes from "./component/CreateNotes";
 import Header from "./component/Header";
 import NotesList from "./component/NotesList";
-import { Note } from "./models/note.model";
+import { Note, uniqueId } from "./models/note.model";
 
 function App() {
-  const uniqueId = () => {
-    const dateString = Date.now().toString(36);
-    const randomness = Math.random().toString(36).substr(2);
-    return dateString + randomness;
-  };
   const [notes, setNotes] = useState<Note[]>([
     {
       id: uniqueId(),
       title: "Meetings",
       text: "Zoom Dev Hour with the Team lead",
-      color: "#037fff",
+      color: "#dfdfdf",
       date: new Date().toString(),
     },
   ]);
@@ -24,10 +20,15 @@ function App() {
     <>
       {" "}
       <Header />{" "}
-      <Container className='mt-5'>
+      <Container className="mt-5">
         <Row>
           <Col>
-            <NotesList notes={notes}setNotes={setNotes}/>
+            <NotesList notes={notes} setNotes={setNotes} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <CreateNotes notes={notes} setNotes={setNotes} />
           </Col>
         </Row>
       </Container>{" "}

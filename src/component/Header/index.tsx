@@ -7,7 +7,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
   return (
     <Navbar fixed="top" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>TODO NOTES SCHEDULER</Navbar.Brand>
+        <Navbar.Brand>TODO EVENTS SCHEDULER</Navbar.Brand>
       </Container>
     </Navbar>
   );
